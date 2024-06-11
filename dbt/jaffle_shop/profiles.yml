@@ -1,0 +1,41 @@
+# example profiles.yml file
+jaffle_shop:
+  target: dev
+
+  outputs:
+    dev:
+      type: snowflake
+      account: zn03575.sa-east-1.aws
+
+      user: dbt_dev_user
+      password: "{{ env_var('DBT_DEV_PASSWORD') }}"
+
+      role: dbt_dev_role
+      database: dev_store_db
+      warehouse: dev_warehouse
+
+      schema: raw
+      
+    test:
+      type: snowflake
+      account: zn03575.sa-east-1.aws
+
+      user: dbt_test_user
+      password: "{{ env_var('DBT_TEST_PASSWORD') }}"
+
+      role: dbt_test_role
+      database: test_store_db
+      warehouse: test_warehouse
+      schema: raw
+
+    prod:
+      type: snowflake
+      account: zn03575.sa-east-1.aws
+
+      user: dbt_prod_user
+      password: "{{ env_var('DBT_PROD_PASSWORD') }}"
+
+      role: dbt_prod_role
+      database: prod_store_db
+      warehouse: prod_warehouse
+      schema: raw
